@@ -13,7 +13,7 @@ const getLocalStorage = () => {
 
 function App() {
   const [name, setName] = useState("");
-  const [list, setList] = useState([getLocalStorage]);
+  const [list, setList] = useState(getLocalStorage());
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
   const [alert, setAlert] = useState({
@@ -70,6 +70,7 @@ function App() {
     setName(specificItem.title);
   };
 
+  // insert values to local storage
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list));
   }, [list]);
